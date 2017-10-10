@@ -14,7 +14,8 @@ router.get('/speakers', (req,res)=>{
     res.send(`
 <link rel="stylesheet" href="/css/style.css">
 <h1>Roux Academy Meetups</h1>
-    <img src="/images/misc/background.jpg" alt="background" style="height: 300px">${info}`);
+    <img src="/images/misc/background.jpg" alt="background" style="height: 300px">${info}
+    <script src="/reload/reload.js"></script>`);
 });
 
 router.get('/speakers/:speakerid', (req,res)=>{
@@ -26,7 +27,8 @@ router.get('/speakers/:speakerid', (req,res)=>{
     <img src="/images/misc/background.jpg" alt="background" style="height: 300px">
                 <h2>with ${speaker.name}</h2>
                 <img src="/images/speakers/${speaker.shortname}_tn.jpg" alt="speaker">
-                    <p>${speaker.summary}</p>`);
+                    <p>${speaker.summary}</p>
+<script src="/reload/reload.js"></script>`);
 });
 
 module.exports = router;

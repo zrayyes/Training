@@ -1,4 +1,5 @@
 const express = require('express');
+const reload = require('reload');
 const app = express();
 const dataFile = require('./data/data.json');
 
@@ -12,3 +13,5 @@ app.use(require('./routes/speakers'));
 const server = app.listen(app.get('port'), ()=> {
     console.log(`Server started on port ${app.get('port')} ...`);
 });
+
+reload(app);
