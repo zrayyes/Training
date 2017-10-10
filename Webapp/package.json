@@ -4,11 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -e css,ejs,js,json app.js"
+    "start": "nodemon -e css,ejs,js,json app.js --ignore feedback.json"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "reload": "^2.2.2"
