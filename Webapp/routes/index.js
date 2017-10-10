@@ -2,12 +2,18 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req,res)=>{
-    res.send(`
-<link rel="stylesheet" href="css/style.css">
-<h1>Welcome</h1>
-    <img src="/images/misc/background.jpg" alt="background" style="height: 300px">
-        <p>Roux Academy Meetups put together artists from all walks of life</p>
-            <script src="/reload/reload.js"></script>`);
+    let data = req.app.get('appData');
+    let pagePhotos = [];
+
+    data.speakers.forEach(item => {
+        pagePhotos = pagePhotos.concat(item.artwork);
+    });
+
+    res.render('index',{
+        pageTitle: 'Home',
+        artwork: pagePhotos,
+        pageID: 'home'
+    });
 });
 
 module.exports = router;

@@ -5,6 +5,10 @@ const dataFile = require('./data/data.json');
 
 app.set('port', process.env.PORT || 3000);
 app.set('appData', dataFile);
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+app.locals.siteTitle = 'Roux Meetups';
 
 app.use(express.static('public'));
 app.use(require('./routes/index'));
