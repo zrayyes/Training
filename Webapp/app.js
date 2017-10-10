@@ -15,6 +15,8 @@ app.locals.allSpeakers = dataFile.speakers;
 app.use(express.static('public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/speakers'));
+app.use(require('./routes/feedback'));
+
 
 const server = app.listen(app.get('port'), ()=> {
     console.log(`Server started on port ${app.get('port')} ...`);
