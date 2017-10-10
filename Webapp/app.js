@@ -9,6 +9,8 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.locals.siteTitle = 'Roux Meetups';
+app.locals.allSpeakers = dataFile.speakers;
+
 
 app.use(express.static('public'));
 app.use(require('./routes/index'));
