@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML5 Game Course</title>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script type="text/javascript">
+      function loadSound()
+      {
+        createjs.Sound.registerSound("assets/scream.ogg","scream");
+        // Note: Edge does not play ogg files
+      }
+      function playSound()
+      {
+        createjs.Sound.play("scream");
+      }
+    </script>
+  </head>
+  <body onload="loadSound();">
+    <button onclick="playSound();" name="button">Play Sound</button>
+  </body>
+</html>

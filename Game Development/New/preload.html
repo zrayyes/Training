@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 Game Course</title>
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+</head>
+
+<body onload="init();">
+  <script type="text/javascript">
+    var queue = new createjs.LoadQueue();
+
+    function init() {
+      queue.on("progress", handleFileProgress);
+      queue.on("fileload", handleFileLoad);
+      queue.on("complete", handleComplete);
+      queue.loadManifest([{
+          id: "myImage",
+          src: "assets/1.png"
+        },
+        {
+          id: "myImage2",
+          src: "assets/2.png"
+        },
+        {
+          id: "myImage3",
+          src: "assets/3.png"
+        }
+      ]);
+    }
+
+    function handleFileProgress(event) {
+      console.log("Progress: " + queue.progress * 100 + " %");
+    }
+
+    function handleFileLoad(event) {
+      var image = queue.getResult(event.item.id);
+      document.body.appendChild(image);
+    }
+
+    function handleComplete(event) {
+      console.log("Loading Completed");
+    }
+  </script>
+</body>
+
+</html>
