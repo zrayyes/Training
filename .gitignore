@@ -46,3 +46,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .idea/
+Babel/
+node_modules/
+*.jpg
+package-lock.json
