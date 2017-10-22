@@ -3,7 +3,8 @@ import {Component} from '@angular/core';
 @Component(
     {
     selector: 'app',
-    templateUrl: './partials/app.html'
+    templateUrl: './partials/app.html',
+    styleURls: './css/app.css'
 })
 
 export class AppComponent
