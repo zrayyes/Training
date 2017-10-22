@@ -1,15 +1,35 @@
 import {Component} from '@angular/core';
 
-@Component({
+@Component(
+    {
     selector: 'app',
     templateUrl: './partials/app.html'
 })
 
-export class AppComponent {
+export class AppComponent
+{
     name : string;
     artists : any;
 
-    constructor() {
+    onClick(e)
+    {
+        this.name = e.target.innerHTML;
+    }
+
+    addArtist(value)
+    {
+        if (value !==''){
+            this.artists.push(
+                {
+                    name: value,
+                    school: 'Hard Knocks'
+                }
+            );
+        }
+    }
+
+    constructor()
+    {
         this.name = 'Zuhair Rayyes';
         this.artists = [
             {
