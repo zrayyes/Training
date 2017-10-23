@@ -5,9 +5,9 @@ This is my code for Lynda.com courses that I am currently working on or have alr
 
  - Building a Website with Node.js and Express.js
  - Learning ECMAScript 6
+ - Learning AngularJS 2
 
 
 ## Courses currently working on:
 
- - Advanced HTML5 Game Development
- - Learning AngularJS 2
+ - Angular 2 Essential Training
