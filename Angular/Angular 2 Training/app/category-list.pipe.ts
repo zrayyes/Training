@@ -2,7 +2,7 @@ import {Pipe} from "@angular/core";
 
 @Pipe(
 {
-    name: 'category-list',
+    name: 'categoryList',
     pure: true
 })
 
