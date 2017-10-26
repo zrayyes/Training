@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MediaItemComponent } from "./media-item.component";
 
-@NgModule({
+@NgModule(
+{
   imports: [
     BrowserModule
   ],
@@ -16,4 +17,8 @@ import { MediaItemComponent } from "./media-item.component";
     AppComponent
   ]
 })
-export class AppModule {}
+
+export class AppModule
+{
+
+}
