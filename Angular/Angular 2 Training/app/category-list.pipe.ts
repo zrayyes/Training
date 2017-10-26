@@ -1,21 +1,16 @@
-import {Pipe} from "@angular/core";
+import { Pipe } from '@angular/core';
 
-@Pipe(
-{
-    name: 'categoryList',
-    pure: true
+@Pipe({
+  name: 'categoryList'
 })
-
-export class CategoryListPipe
-{
-    transform(mediaItems)
-    {
-        let categories = [];
-        mediaItems.forEach(mediaItem => {
-            if (categories.indexOf(mediaItem.category) <= -1) {
-                categories.push(mediaItem.category);
-            }
-        });
-        return categories.join(', ');
-    }
+export class CategoryListPipe {
+  transform(mediaItems) {
+    var categories = [];
+    mediaItems.forEach(mediaItem => {
+      if (categories.indexOf(mediaItem.category) <= -1) {
+        categories.push(mediaItem.category);
+      }
+    });
+    return categories.join(', ');
+  }
 }
