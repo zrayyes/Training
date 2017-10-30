@@ -50,3 +50,5 @@ Babel/
 node_modules/
 *.jpg
 package-lock.json
+Python_Data_Analysis/.ipynb_checkpoints/words
+Python_Data_Analysis/words
