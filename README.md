@@ -7,8 +7,7 @@ This is my code for Lynda.com courses that I am currently working on or have alr
  - Learning ECMAScript 6
  - Learning AngularJS 2
  - Angular 2 Essential Training
+ - Python: Data Analysis
 
 
 ## Courses currently working on:
- - Python: Data Analysis
- 
