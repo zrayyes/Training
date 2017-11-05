@@ -50,9 +50,9 @@ Babel/
 node_modules/
 *.jpg
 package-lock.json
-Python_Data_Analysis/.ipynb_checkpoints/words
-Python_Data_Analysis/words
+Python Data Science/Python_Data_Analysis/.ipynb_checkpoints/words
 *.npy
-Python_Data_Analysis/stations.txt
+Python Data Science/Python_Data_Analysis/stations.txt
 *.dly
 Python_Data_Analysis/readme.txt
+Python Data Science/Python_Data_Analysis/words
