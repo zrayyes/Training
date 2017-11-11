@@ -14,3 +14,4 @@ This is my code for Lynda.com courses that I am currently working on or have alr
 
  - NumPy Data Science Essential Training
  - pandas Essential Training
+ - Functional-Lite JavaScript
