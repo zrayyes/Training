@@ -9,10 +9,11 @@ This is my code for Lynda.com courses that I am currently working on or have alr
  - Angular 2 Essential Training
  - Python: Data Analysis
  - Functional-Lite JavaScript
+ - Learning Functional Programming with JavaScript
 
 
 ## Courses currently working on:
 
  - NumPy Data Science Essential Training
  - pandas Essential Training
- - Learning Functional Programming with JavaScript
+
