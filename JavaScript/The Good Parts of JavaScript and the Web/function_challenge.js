@@ -179,3 +179,26 @@ let index = from(0);
 log(index());
 log(index());
 log(index());
+
+
+// Write a to function that takes a generator and an end value,
+// and returns a generator that will produce numbers up to that limit.
+// var index = to(from(1), 3);
+
+function to(start, end){
+    let count = 1;
+    return function () {
+        if (count >= end){
+            return undefined;
+        } else {
+            count += 1;
+            return start();
+        }
+    }
+}
+
+let index2 = to(from(1), 3);
+
+log(index2());  // 1
+log(index2());  // 2
+log(index2());  // undefined
