@@ -126,3 +126,16 @@ function composeu(fn1, fn2){
 }
 
 log(composeu(doubl, square)(5));    // 100
+
+
+// Write a function 'composeb' that takes two binary functions and returns a function that calls them both.
+// composeb(add, mul)(2,3,7) = 35
+
+function composeb(fn1,fn2) {
+    return function (x,y,z){
+        return fn2(fn1(x,y),z);
+    };
+}
+
+log(composeb(add, mul)(2,3,7));     // 35
+
