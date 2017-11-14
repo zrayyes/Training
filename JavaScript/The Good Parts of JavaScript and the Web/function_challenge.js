@@ -50,3 +50,18 @@ function liftf(fn) {
 }
 
 log(liftf(mul)(5)(6));  // 30
+
+
+// Write a function curry that takes a binary function and an argument,
+// and returns a function that can take a second argument
+// var add3 = curry(add,3);
+// add3(4) = 7
+
+function curry(fn, x) {
+    return function(y){
+        return fn(x,y);
+    };
+}
+
+let add3 = curry(add,3);
+log(add3(4));
