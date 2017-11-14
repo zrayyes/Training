@@ -98,3 +98,16 @@ function twice(fn) {
 
 log(twice(add)(5));     // 10
 log(twice(mul)(5));     // 25
+
+
+// Write reverse, a function that reverses the arguments of a binary function.
+// var bus = reverse(sub)
+// bus(3,2) = -1
+
+function reverse(fn){
+    return function(x,y){
+        return fn(y,x);
+    }
+}
+
+log(reverse(sub)(3,2));     // -1
