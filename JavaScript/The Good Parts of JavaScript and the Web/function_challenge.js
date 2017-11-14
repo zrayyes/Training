@@ -96,8 +96,11 @@ function twice(fn) {
     }
 }
 
-log(twice(add)(5));     // 10
-log(twice(mul)(5));     // 25
+let doubl = twice(add);
+let square = twice(mul);
+
+log(doubl(5));     // 10
+log(square(5));     // 25
 
 
 // Write reverse, a function that reverses the arguments of a binary function.
@@ -111,3 +114,15 @@ function reverse(fn){
 }
 
 log(reverse(sub)(3,2));     // -1
+
+
+// Write a function 'composeu' that takes two unary functions and returns a unary function that calls them both.
+// composeu(doubl, square)(5) = 100
+
+function composeu(fn1, fn2){
+    return function(x){
+        return fn2(fn1(x));
+    };
+}
+
+log(composeu(doubl, square)(5));    // 100
