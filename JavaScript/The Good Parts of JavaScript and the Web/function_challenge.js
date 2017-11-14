@@ -163,3 +163,19 @@ log(add_ltd(3,4));  // undefined
 log(sub_ltd(5,4));  // 1
 log(sub_ltd(5,4));  // 1
 log(sub_ltd(5,4));  // undefined
+
+
+// Write a from function that produces a generator that will produce a series of values.
+
+function from(n){
+    return function () {
+        let count = n;
+        n += 1;
+        return count;
+    };
+}
+
+let index = from(0);
+log(index());
+log(index());
+log(index());
