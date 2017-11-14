@@ -80,6 +80,21 @@ let inc2 = liftf(add)(1);
 // Way 3
 let inc3 = curry(add,1);
 
-log(inc1(5));
-log(inc2(5));
-log(inc3(5));
+log(inc1(5));   // 6
+log(inc2(5));   // 6
+log(inc3(5));   // 6
+
+
+// Write a function 'twice', that takes a binary function and returns
+// a unary function that passes its argument to the binary function 'twice'.
+// var double = twice(add);
+// double(11) = 22;
+
+function twice(fn) {
+    return function (x) {
+        return fn(x,x);
+    }
+}
+
+log(twice(add)(5));     // 10
+log(twice(mul)(5));     // 25
