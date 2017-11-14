@@ -65,3 +65,21 @@ function curry(fn, x) {
 
 let add3 = curry(add,3);
 log(add3(4));
+
+
+// Without writing any new functions, show three ways to create the inc function
+// inc(5)  = 6
+// inc(inc(5)) = 7
+
+// Way 1
+let inc1 = addf(1);
+
+// Way 2
+let inc2 = liftf(add)(1);
+
+// Way 3
+let inc3 = curry(add,1);
+
+log(inc1(5));
+log(inc2(5));
+log(inc3(5));
