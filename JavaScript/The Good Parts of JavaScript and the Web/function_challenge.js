@@ -22,4 +22,15 @@ function identityf(n){
 }
 
 let three = identityf(3);
-log(three());
+log(three());   // 3
+
+// Write a function addf that that adds from two invocations
+// addf(3)(4) //7
+
+function addf(x) {
+    return function (y) {
+        return add(x,y);
+    }
+}
+
+log(addf(3)(4)); // 7
