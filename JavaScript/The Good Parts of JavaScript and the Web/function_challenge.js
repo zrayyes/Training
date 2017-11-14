@@ -24,7 +24,8 @@ function identityf(n){
 let three = identityf(3);
 log(three());   // 3
 
-// Write a function addf that that adds from two invocations
+
+// Write a function addf that adds from two invocations
 // addf(3)(4) //7
 
 function addf(x) {
@@ -34,3 +35,18 @@ function addf(x) {
 }
 
 log(addf(3)(4)); // 7
+
+
+// Write a function liftf that takes a binary function,
+// and makes it callable with two invocations
+// liftf(mul)(5)(6)  = 30
+
+function liftf(fn) {
+    return function(x){
+        return function(y){
+            return fn(x,y);
+        };
+    };
+}
+
+log(liftf(mul)(5)(6));  // 30
