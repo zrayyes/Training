@@ -139,3 +139,27 @@ function composeb(fn1,fn2) {
 
 log(composeb(add, mul)(2,3,7));     // 35
 
+
+// Write a limit function that allows a binary function to be called a limited number of times.
+// var add_ltd = limit(add,1);
+
+function limit(fn1,n){
+    let counter = 0;
+    return function (x,y) {
+        if (counter >= n){
+            return undefined;
+        } else {
+            counter += 1;
+            return fn1(x,y);
+        }
+    };
+}
+
+let add_ltd = limit(add,1);
+let sub_ltd = limit(sub,2);
+
+log(add_ltd(3,4));  // 7
+log(add_ltd(3,4));  // undefined
+log(sub_ltd(5,4));  // 1
+log(sub_ltd(5,4));  // 1
+log(sub_ltd(5,4));  // undefined
