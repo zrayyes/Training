@@ -378,4 +378,33 @@ log(fib());     // 3
 log(fib());     // 5
 
 
-//
+log('\n*** PART 2 ***\n');
+////////////////////
+// OO Programming
+////////////////////
+
+// Write a counter function that returns an object
+// containing two functions that implemented an up/down counter hiding the counter.
+
+function counter(n) {
+    return {
+        up : function () {
+            n += 1;
+            return n;
+        },
+        down : function () {
+            n -= 1;
+            return n;
+        }
+    }
+}
+
+let object10 = counter(10),
+    up   = object10.up,
+    down = object10.down;
+
+
+log(up());      // 11
+log(down());    // 10
+log(down());    // 9
+log(up());      // 10
