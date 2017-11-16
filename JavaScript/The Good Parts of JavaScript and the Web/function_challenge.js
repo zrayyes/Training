@@ -231,3 +231,25 @@ let ele = element(["a","b","c","d"],fromTo(1,3));
 log(ele());     // b
 log(ele());     // c
 log(ele());     // undefined
+
+
+// Write a collect function that take a generator and an array
+// and produces a function that will collect results in the array.
+
+function collect(index, array){
+    return function(){
+        let value = index();
+        if (value !== undefined){
+            array.push(value);
+        }
+        return value;
+    };
+}
+
+let array = [];
+let col = collect(fromTo(0,2), array);
+
+log(col());     // 0
+log(col());     // 1
+log(col());     // undefined
+log(array);     // [0, 1]
