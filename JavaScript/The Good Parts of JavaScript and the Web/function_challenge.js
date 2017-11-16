@@ -215,3 +215,19 @@ log(index3());  // 0
 log(index3());  // 1
 log(index3());  // 2
 log(index3());  // undefined
+
+
+// Write an element function that takes an array and a generator and
+// returns a generator that will produce elements from the array.
+
+function element(array, index){
+    return function(){
+        return array[index()];
+    }
+}
+
+let ele = element(["a","b","c","d"],fromTo(1,3));
+
+log(ele());     // b
+log(ele());     // c
+log(ele());     // undefined
