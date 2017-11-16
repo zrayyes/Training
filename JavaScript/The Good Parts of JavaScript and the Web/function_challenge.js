@@ -12,6 +12,7 @@ function mul(x,y){
 
 const log = console.log;
 
+
 // Write a function identityf that takes an argument and returns
 // a function that returns that argument.
 
@@ -25,6 +26,7 @@ let three = identityf(3);
 log(three());   // 3
 
 
+log('');
 // Write a function addf that adds from two invocations
 // addf(3)(4) //7
 
@@ -37,6 +39,7 @@ function addf(x) {
 log(addf(3)(4)); // 7
 
 
+log('');
 // Write a function liftf that takes a binary function,
 // and makes it callable with two invocations
 // liftf(mul)(5)(6)  = 30
@@ -52,6 +55,7 @@ function liftf(fn) {
 log(liftf(mul)(5)(6));  // 30
 
 
+log('');
 // Write a function curry that takes a binary function and an argument,
 // and returns a function that can take a second argument
 // var add3 = curry(add,3);
@@ -67,6 +71,7 @@ let add3 = curry(add,3);
 log(add3(4));
 
 
+log('');
 // Without writing any new functions, show three ways to create the inc function
 // inc(5)  = 6
 // inc(inc(5)) = 7
@@ -85,6 +90,7 @@ log(inc2(5));   // 6
 log(inc3(5));   // 6
 
 
+log('');
 // Write a function 'twice', that takes a binary function and returns
 // a unary function that passes its argument to the binary function 'twice'.
 // var double = twice(add);
@@ -103,6 +109,7 @@ log(doubl(5));     // 10
 log(square(5));     // 25
 
 
+log('');
 // Write reverse, a function that reverses the arguments of a binary function.
 // var bus = reverse(sub)
 // bus(3,2) = -1
@@ -116,6 +123,7 @@ function reverse(fn){
 log(reverse(sub)(3,2));     // -1
 
 
+log('');
 // Write a function 'composeu' that takes two unary functions and returns a unary function that calls them both.
 // composeu(doubl, square)(5) = 100
 
@@ -128,6 +136,7 @@ function composeu(fn1, fn2){
 log(composeu(doubl, square)(5));    // 100
 
 
+log('');
 // Write a function 'composeb' that takes two binary functions and returns a function that calls them both.
 // composeb(add, mul)(2,3,7) = 35
 
@@ -140,6 +149,7 @@ function composeb(fn1,fn2) {
 log(composeb(add, mul)(2,3,7));     // 35
 
 
+log('');
 // Write a limit function that allows a binary function to be called a limited number of times.
 // var add_ltd = limit(add,1);
 
@@ -165,6 +175,7 @@ log(sub_ltd(5,4));  // 1
 log(sub_ltd(5,4));  // undefined
 
 
+log('');
 // Write a from function that produces a generator that will produce a series of values.
 
 function from(n){
@@ -181,6 +192,7 @@ log(index());   // 1
 log(index());   // 2
 
 
+log('');
 // Write a to function that takes a generator and an end value,
 // and returns a generator that will produce numbers up to that limit.
 // var index = to(from(1), 3);
@@ -202,6 +214,7 @@ log(index2());  // 2
 log(index2());  // undefined
 
 
+log('');
 // Write a 'fromTo' function that produces a generator that produces value in a range.
 // var index = fromTo(0,3);
 
@@ -217,6 +230,7 @@ log(index3());  // 2
 log(index3());  // undefined
 
 
+log('');
 // Write an element function that takes an array and a generator and
 // returns a generator that will produce elements from the array.
 
@@ -233,6 +247,7 @@ log(ele());     // c
 log(ele());     // undefined
 
 
+log('');
 // Write a collect function that take a generator and an array
 // and produces a function that will collect results in the array.
 
@@ -255,6 +270,7 @@ log(col());     // undefined
 log(array);     // [0, 1]
 
 
+log('');
 // Write a filter function that takes a generator and a predicate,
 // a predicate is a function that returns a boolean, true or false,
 // and produces a generator that produces only the values approved by the predicate.
@@ -279,6 +295,7 @@ log(fil());     // 3
 log(fil());     // undefined
 
 
+log('');
 // Write a concat function that takes two generators and produces
 // a generator that combines their sequences.
 
@@ -304,6 +321,7 @@ log(con());     // undefined
 log(con());     // undefined
 
 
+log('');
 // Make a function gensymf that makes a function that generates symbols.
 
 function gensymf(letter){
@@ -323,6 +341,7 @@ log(geng());    // G2
 log(genh());    // H2
 
 
+log('');
 // Make a function gensymff that takes a unary function and a seed
 // and returns a gensymf
 
@@ -346,6 +365,7 @@ log(geng2());    // G2
 log(genh2());    // H2
 
 
+log('');
 // Write a function fibonaccif
 
 function fibonaccif(start, end) {
@@ -396,7 +416,7 @@ function counter(n) {
             n -= 1;
             return n;
         }
-    }
+    };
 }
 
 let object10 = counter(10),
@@ -408,3 +428,29 @@ log(up());      // 11
 log(down());    // 10
 log(down());    // 9
 log(up());      // 10
+
+log('');
+// make a revocable function that takes a binary function
+// and returns an object containing an invoke function that
+// can invoke the binary function and revoke function that
+// disables the invoke function.
+
+function revocable(fn) {
+    return {
+        invoke: function (x,y) {
+            if (fn !== undefined){
+                return fn(x,y);
+            }
+        },
+        revoke: function () {
+            fn = undefined;
+        }
+    };
+}
+
+let rev = revocable(add),
+    add_rev = rev.invoke;
+
+log(add_rev(3,4));      // 7
+rev.revoke();
+log(add_rev(3,4));      // undefined
