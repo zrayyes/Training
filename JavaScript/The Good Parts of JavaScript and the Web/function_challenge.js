@@ -302,3 +302,24 @@ log(con());     // 0
 log(con());     // 1
 log(con());     // undefined
 log(con());     // undefined
+
+
+// Make a function gensymf that makes a function that generates symbols.
+
+function gensymf(letter){
+    let counter = 0;
+    return function(){
+        counter += 1;
+        return (letter+String(counter));
+    };
+}
+
+let geng = gensymf('G'),
+    genh = gensymf('H');
+
+log(geng());    // G1
+log(genh());    // H1
+log(geng());    // G2
+log(genh());    // H2
+
+
