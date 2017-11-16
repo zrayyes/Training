@@ -277,3 +277,28 @@ let fil = filter(fromTo(0,5),
 log(fil());     // 0
 log(fil());     // 3
 log(fil());     // undefined
+
+
+// Write a concat function that takes two generators and produces
+// a generator that combines their sequences.
+
+function concat(fn1,fn2) {
+    return function(){
+        let value = fn1();
+        if (value !== undefined){
+            return value;
+        } else {
+            return fn2();
+        }
+    };
+}
+
+let con = concat(fromTo(0,3),fromTo(0,2));
+
+log(con());     // 0
+log(con());     // 1
+log(con());     // 2
+log(con());     // 0
+log(con());     // 1
+log(con());     // undefined
+log(con());     // undefined
