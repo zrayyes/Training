@@ -253,3 +253,27 @@ log(col());     // 0
 log(col());     // 1
 log(col());     // undefined
 log(array);     // [0, 1]
+
+
+// Write a filter function that takes a generator and a predicate,
+// a predicate is a function that returns a boolean, true or false,
+// and produces a generator that produces only the values approved by the predicate.
+
+function filter(index, fn){
+    return function(){
+        let value;
+        do {
+            value = index();
+        } while (value !== undefined && !fn(value));
+        return value;
+    };
+}
+
+let fil = filter(fromTo(0,5),
+    function third(value){
+        return (value % 3) === 0;
+    });
+
+log(fil());     // 0
+log(fil());     // 3
+log(fil());     // undefined
