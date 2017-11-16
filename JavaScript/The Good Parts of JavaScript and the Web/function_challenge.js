@@ -310,7 +310,7 @@ function gensymf(letter){
     let counter = 0;
     return function(){
         counter += 1;
-        return (letter+String(counter));
+        return (letter+counter);
     };
 }
 
@@ -323,3 +323,59 @@ log(geng());    // G2
 log(genh());    // H2
 
 
+// Make a function gensymff that takes a unary function and a seed
+// and returns a gensymf
+
+function gensymff(fn, seed){
+    return function(letter){
+        let counter = seed;
+        return function () {
+            counter = fn(counter);
+            return (letter+counter);
+        }
+    }
+}
+
+let gensymf2 = gensymff(inc1, 0),
+    geng2    = gensymf2("G"),
+    genh2    = gensymf2("H");
+
+log(geng2());    // G1
+log(genh2());    // H1
+log(geng2());    // G2
+log(genh2());    // H2
+
+
+// Write a function fibonaccif
+
+function fibonaccif(start, end) {
+    let i = 0;
+    return function () {
+        let next;
+        switch (i){
+        case 0:
+            i = 1;
+            return start;
+        case 1:
+            i = 2;
+            return end;
+        default:
+            next = start + end;
+            start = end;
+            end = next;
+            return next;
+        }
+    }
+}
+
+let fib = fibonaccif(0,1);
+
+log(fib());     // 0
+log(fib());     // 1
+log(fib());     // 1
+log(fib());     // 2
+log(fib());     // 3
+log(fib());     // 5
+
+
+//
