@@ -43,6 +43,14 @@ div.note:hover > span {
     opacity: 1;
 }
 
+div.note > span {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    opacity: 0;
+    transition: opacity .25s linear;
+}
+
 div.note button {
     margin: 2px;
 }
