@@ -14,9 +14,22 @@
     <div id="react-container"></div>
     <script type="text/babel">
         class Note extends React.Component{
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                    editing: false
+                };
+                this.edit = this.edit.bind(this);
+                this.save = this.save.bind(this);
+            };
 
             edit() {
-                alert('Edit Works');
+               this.setState({editing:true});
+            }
+
+            save() {
+                this.setState({editing:false});
             }
 
             remove() {
