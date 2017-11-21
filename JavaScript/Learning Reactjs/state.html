@@ -13,11 +13,32 @@
     <div id="react-container"></div>
     <script type="text/babel">
         class Checkbox extends React.Component{
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                    checked: false
+                };
+                this.handleCheck = this.handleCheck.bind(this)
+            };
+
+            handleCheck() {
+                this.setState({checked: !this.state.checked});
+            }
+
             render() {
+                let msg;
+
+                if (this.state.checked){
+                    msg = "checked";
+                } else {
+                    msg = "unchecked";
+                }
+
                 return (
                     <div>
-                        <input type="checkbox"/>
-                        <p></p>
+                        <input type="checkbox" onChange={this.handleCheck} defaultChecked={this.state.checked}/>
+                        <p>This box is {msg}</p>
                     </div>
                 )
             }
