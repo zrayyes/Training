@@ -1,12 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
 
-import {hello, goodbye} from "./lib";
+import {SkiDayCount} from "./components/SkiDayCount";
+
+// Adds react to window to avoid React is undefined
+window.React = React;
 
 render(
-    <div>
-        {hello}
-        {goodbye}
-    </div>,
+    <SkiDayCount/>,
     document.getElementById('react-container')
 );
