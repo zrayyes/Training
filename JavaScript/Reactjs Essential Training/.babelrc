@@ -1,0 +1,3 @@
+{
+  'presets': ['lastest','react','stage-0']
+}
