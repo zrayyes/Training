@@ -17,4 +17,4 @@ This is my code for Lynda.com courses that I am currently working on or have alr
  - NumPy Data Science Essential Training
  - pandas Essential Training
  - The Good Parts of JavaScript and the Web
- - Learning React.js
+ - React.js Essential Training
