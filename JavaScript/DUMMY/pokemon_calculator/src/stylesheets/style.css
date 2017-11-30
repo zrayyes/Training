@@ -1,0 +1,8 @@
+.details{
+    width: 20%;
+    text-align: center;
+    background-color: yellow;
+    color: indigo;
+    border: 5px solid black;
+    border-radius: 5px;
+}
