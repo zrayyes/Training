@@ -1,21 +1,39 @@
 import { PropTypes, Component } from "react";
 
 export class AddDayForm extends Component {
+
     render(){
+
+        const {resort, date, powder, backCountry} = this.props;
+
         return (
             <form className="add-day">
                 <label htmlFor="resort">Resort Name</label>
-                <input type="text" id="resort" required/>
+                <input type="text"
+                       id="resort"
+                       defaultValue={resort}
+                       required/>
 
                 <label htmlFor="date">Date</label>
-                <input type="date" id="date" required/>
+                <input type="date"
+                       id="date"
+                       defaultValue={date}
+                       required/>
 
                 <div>
-                    <input type="checkbox" id="powder" required/>
+                    <input
+                        type="checkbox"
+                        id="powder"
+                        defaultChecked={powder}
+                        required/>
                     <label htmlFor="powder">Powder Day</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="backcountry" required/>
+                    <input
+                        type="checkbox"
+                        id="backcountry"
+                        defaultChecked={backCountry}
+                        required/>
                     <label htmlFor="backcountry">Backcountry Day</label>
                 </div>
 
@@ -23,6 +41,13 @@ export class AddDayForm extends Component {
         )
     };
 }
+
+AddDayForm.defaultProps = {
+    resort: "Kirkwood",
+    date: "2016-03-28",
+    powder: true,
+    backcountry: false
+};
 
 AddDayForm.propTypes = {
     resort: PropTypes.string.isRequired,
