@@ -5,7 +5,7 @@ import {SkiDayRow} from "./SkiDayRow";
 import {PropTypes} from "react";
 
 export const SkiDayList = ({days}) => (
-    <table className="table table-bordered table-hover">
+    <table>
         <thead>
             <tr>
                 <th>Date</th>
