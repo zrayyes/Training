@@ -1,6 +1,5 @@
 import {Component} from "react";
-
-
+import {PokemonDetail} from "./PokemonDetail";
 
 
 export class Pokemon extends Component {
@@ -32,9 +31,7 @@ export class Pokemon extends Component {
         return (
             <div>
                 {(this.state.pokemon) ?
-                    <h1>
-                        {this.state.pokemon.name}
-                    </h1>
+                    <PokemonDetail pokemon={this.state.pokemon}/>
                     : "Loading..."}
             </div>
 
