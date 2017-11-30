@@ -2,6 +2,7 @@ import {Component} from "react";
 import {SkiDayCount} from "./SkiDayCount";
 import {SkiDayList} from "./SkiDayList";
 import {AddDayForm} from "./AddDayForm";
+import {Menu} from "./Menu";
 
 export class App extends Component{
     constructor(props){
@@ -41,6 +42,7 @@ export class App extends Component{
     render(){
        return (
            <div className="app">
+               <Menu/>
                {
                    // Root route
                    (this.props.location.pathname === '/') ?
