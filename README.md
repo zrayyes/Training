@@ -10,6 +10,7 @@ This is my code for Lynda.com courses that I am currently working on or have alr
  - Python: Data Analysis
  - Functional-Lite JavaScript
  - Learning Functional Programming with JavaScript
+ - React.js Essential Training
 
 
 ## Courses currently working on:
@@ -17,4 +18,3 @@ This is my code for Lynda.com courses that I am currently working on or have alr
  - NumPy Data Science Essential Training
  - pandas Essential Training
  - The Good Parts of JavaScript and the Web
- - React.js Essential Training
