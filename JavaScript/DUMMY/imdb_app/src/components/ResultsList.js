@@ -1,15 +1,17 @@
 export const ResultsList = ({movies}) => {
 
-    const showMovies = (movieList) => {
-        return movieList.map((item) => {
-            return (<li key={item.title+item.year}>{item.title} | {item.year}</li>);
-        });
-    };
+    const showMovies = movies.map((item) => {
+        return (
+            <li key={item.title+item.year}>
+                {item.title} | {item.year}
+            </li>
+        );
+    });
 
     return (
         <div>
             <ul>
-                {showMovies(movies)}
+                {showMovies}
             </ul>
         </div>
     )
