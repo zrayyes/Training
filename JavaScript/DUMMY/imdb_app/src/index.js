@@ -5,6 +5,7 @@ import "./stylesheets/style.css";
 
 import {SearchBar} from "./components/SearchBar";
 import {ResultsList} from "./components/ResultsList"
+import {SelectedItem} from "./components/SelectedItem"
 
 window.React = React;
 
