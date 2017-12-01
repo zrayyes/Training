@@ -13,7 +13,8 @@ class App extends Component {
         super(props);
 
         this.state = {
-            movies: null
+            movies: null,
+            selectedMovie: null
         };
 
         this.searchMovies = this.searchMovies.bind(this);
@@ -23,7 +24,12 @@ class App extends Component {
         fetch(`https://theimdbapi.org/api/find/movie?title=${term}`)
             .then((response) => response.json())
             .then((movies) => {
-                this.setState({movies});
+                if(movies.length) {
+                    this.setState({
+                        movies: movies,
+                        selectedMovie: movies[0]
+                    });
+                }
             })
             .catch((error) => {
                 console.error(error);
@@ -38,7 +44,13 @@ class App extends Component {
                 {(this.state.movies) ?
                     <ResultsList
                         movies={this.state.movies}
-                        onMovieSelect={(movie)=>alert(movie)}
+                        onMovieSelect={(movie)=>this.setState({selectedMovie: movie})}
+                    /> :
+                    null}
+
+                {(this.state.selectedMovie) ?
+                    <SelectedItem
+                        movie={this.state.selectedMovie}
                     /> :
                     null}
             </div>
