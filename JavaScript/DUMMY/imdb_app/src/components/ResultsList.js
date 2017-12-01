@@ -13,8 +13,8 @@ export const ResultsList = ({movies,onMovieSelect}) => {
     });
 
     return (
-        <div>
-            <ul>
+        <div id="movie-list">
+            <ul className="list-group">
                 {showMovies}
             </ul>
         </div>

@@ -43,7 +43,7 @@ class App extends Component {
                 <SearchBar onSearch={this.searchMovies}/>
                 <br/>
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-4" >
                         {(this.state.movies) ?
                             <ResultsList
                                 movies={this.state.movies}
@@ -51,7 +51,7 @@ class App extends Component {
                             /> :
                             null}
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-8" >
                         {(this.state.selectedMovie) ?
                             <SelectedItem
                                 movie={this.state.selectedMovie}
