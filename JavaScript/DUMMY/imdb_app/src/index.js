@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./stylesheets/style.css";
 
 import {SearchBar} from "./components/SearchBar";
+import {ResultsList} from "./components/ResultsList"
 
 window.React = React;
 
@@ -33,7 +34,7 @@ class App extends Component {
         return(
             <div className="container">
                 <SearchBar onSearch={this.searchMovies}/>
-                {(this.state.movies) ? <h1>{this.state.movies[0].title}</h1>: null}
+                {(this.state.movies) ? <ResultsList movies={this.state.movies}/> : null}
             </div>
         );
     }
