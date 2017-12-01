@@ -1,11 +1,9 @@
+import {ResultItem} from "./ResultItem";
+
 export const ResultsList = ({movies}) => {
 
-    const showMovies = movies.map((item) => {
-        return (
-            <li key={item.title+item.year}>
-                {item.title} | {item.year}
-            </li>
-        );
+    const showMovies = movies.map((movie) => {
+        return (<ResultItem key={movie.imdb_id} movie={movie}/>);
     });
 
     return (
