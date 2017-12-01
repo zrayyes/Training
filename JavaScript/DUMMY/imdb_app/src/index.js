@@ -41,19 +41,24 @@ class App extends Component {
         return(
             <div className="container">
                 <SearchBar onSearch={this.searchMovies}/>
-
-                {(this.state.movies) ?
-                    <ResultsList
-                        movies={this.state.movies}
-                        onMovieSelect={(movie)=>this.setState({selectedMovie: movie})}
-                    /> :
-                    null}
-
-                {(this.state.selectedMovie) ?
-                    <SelectedItem
-                        movie={this.state.selectedMovie}
-                    /> :
-                    null}
+                <br/>
+                <div className="row">
+                    <div className="col-md-4">
+                        {(this.state.movies) ?
+                            <ResultsList
+                                movies={this.state.movies}
+                                onMovieSelect={(movie)=>this.setState({selectedMovie: movie})}
+                            /> :
+                            null}
+                    </div>
+                    <div className="col-md-8">
+                        {(this.state.selectedMovie) ?
+                            <SelectedItem
+                                movie={this.state.selectedMovie}
+                            /> :
+                            null}
+                    </div>
+                </div>
             </div>
         );
     }
