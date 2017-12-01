@@ -34,7 +34,13 @@ class App extends Component {
         return(
             <div className="container">
                 <SearchBar onSearch={this.searchMovies}/>
-                {(this.state.movies) ? <ResultsList movies={this.state.movies}/> : null}
+
+                {(this.state.movies) ?
+                    <ResultsList
+                        movies={this.state.movies}
+                        onMovieSelect={(movie)=>alert(movie)}
+                    /> :
+                    null}
             </div>
         );
     }

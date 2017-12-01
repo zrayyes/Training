@@ -1,7 +1,9 @@
-export const ResultItem = ({movie}) => {
+export const ResultItem = ({movie,onMovieSelect}) => {
 
     return (
-        <li key={movie.imdb_id}>
+        <li
+            onClick={() => {onMovieSelect(movie)}}
+            key={movie.imdb_id}>
             {movie.title}
         </li>
     )
