@@ -1,6 +1,12 @@
 li:hover {
-    background-color: darkgrey;
+    background-color: #77C4D3 !important;
 }
 
-#selected-movie{
+body{
+    color: #EA2E49;
+    font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron,li,.card,.form-control {
+    background-color: #DAEDE2 !important;
 }
