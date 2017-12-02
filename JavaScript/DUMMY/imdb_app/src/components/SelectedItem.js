@@ -1,8 +1,8 @@
 export const SelectedItem = ({movie}) => {
     return (
-        <div id="selected-movie">
+        <div className="card">
             <h1>{movie.title}</h1>
-            <div className="row">
+            <div className="row card-block">
 
                 <div className="col-md-4">
                     <img src={movie.poster.large} className="img-fluid"/>
@@ -10,8 +10,7 @@ export const SelectedItem = ({movie}) => {
 
                 <div className="col-md-8">
                     <h2>{movie.year}</h2>
-                    <h4>{movie.genre}</h4>
-                    <p>{movie.description}</p>
+                    <p>{movie.storyline}</p>
                 </div>
 
             </div>
