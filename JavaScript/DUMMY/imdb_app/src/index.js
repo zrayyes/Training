@@ -2,7 +2,6 @@ import React,{Component} from "react";
 import { render } from "react-dom";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./stylesheets/style.css";
-import {dummy_data} from "./components/dummy_data";
 
 import {SearchBar} from "./components/SearchBar";
 import {ResultsList} from "./components/ResultsList"
@@ -15,27 +14,27 @@ class App extends Component {
         super(props);
 
         this.state = {
-            movies: dummy_data,
-            selectedMovie: dummy_data[0]
+            movies: null,
+            selectedMovie: null
         };
 
         this.searchMovies = this.searchMovies.bind(this);
     }
 
     searchMovies(term){
-        // fetch(`https://theimdbapi.org/api/find/movie?title=${term}`)
-        //     .then((response) => response.json())
-        //     .then((movies) => {
-        //         if(movies.length) {
-        //             this.setState({
-        //                 movies: movies,
-        //                 selectedMovie: movies[0]
-        //             });
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
+        fetch(`https://theimdbapi.org/api/find/movie?title=${term}`)
+            .then((response) => response.json())
+            .then((movies) => {
+                if(movies.length) {
+                    this.setState({
+                        movies: movies,
+                        selectedMovie: movies[0]
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     render(){
@@ -65,6 +64,7 @@ class App extends Component {
                                 null}
                         </div>
                     </div>
+                    <br/>
                 </div>
             </div>
         );

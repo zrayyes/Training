@@ -1,12 +1,17 @@
 li:hover {
-    background-color: lightgrey;
+    background-color: black;
+    color: yellow;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
-.jumbotron{
+.jumbotron {
     background-color: black;
     color: yellow;
+}
+
+.card h1 {
+    margin: 1% 2% 0 2%;
 }
