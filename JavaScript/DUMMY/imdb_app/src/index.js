@@ -44,7 +44,7 @@ class App extends Component {
                 <div className="container">
                     <br/>
                     <div className="jumbotron text-center">
-                        <h1>IMDB Movie search</h1>
+                        <h1>IMDB Movie Search</h1>
                     </div>
                     <SearchBar onSearch={this.searchMovies}/>
                     <br/>
