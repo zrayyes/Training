@@ -15,8 +15,14 @@ export class SearchBar extends Component {
 
     render(){
         return (
-            <div id="search-bar">
-                <input type="text" name="search" onKeyPress={this.onKeyPress}/>
+            <div >
+
+                <input type="text"
+                       name="search"
+                       className="form-control"
+                       onKeyPress={this.onKeyPress}
+                       placeholder="Search"/>
+
             </div>
         )
     }

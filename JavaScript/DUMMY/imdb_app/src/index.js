@@ -40,24 +40,30 @@ class App extends Component {
 
     render(){
         return(
-            <div className="container">
-                <SearchBar onSearch={this.searchMovies}/>
-                <br/>
-                <div className="row">
-                    <div className="col-md-4" >
-                        {(this.state.movies) ?
-                            <ResultsList
-                                movies={this.state.movies}
-                                onMovieSelect={(movie)=>this.setState({selectedMovie: movie})}
-                            /> :
-                            null}
+            <div>
+                <div className="container">
+                    <br/>
+                    <div className="jumbotron text-center">
+                        <h1>IMDB Movie search</h1>
                     </div>
-                    <div className="col-md-8" >
-                        {(this.state.selectedMovie) ?
-                            <SelectedItem
-                                movie={this.state.selectedMovie}
-                            /> :
-                            null}
+                    <SearchBar onSearch={this.searchMovies}/>
+                    <br/>
+                    <div className="row">
+                        <div className="col-md-4" >
+                            {(this.state.movies) ?
+                                <ResultsList
+                                    movies={this.state.movies}
+                                    onMovieSelect={(movie)=>this.setState({selectedMovie: movie})}
+                                /> :
+                                null}
+                        </div>
+                        <div className="col-md-8" >
+                            {(this.state.selectedMovie) ?
+                                <SelectedItem
+                                    movie={this.state.selectedMovie}
+                                /> :
+                                null}
+                        </div>
                     </div>
                 </div>
             </div>
