@@ -52,12 +52,21 @@ app.put('/lions/:id',(req,res) => {
     } else {
         res.send();
     }
-
-    res.json(lions);
 });
 
-// DESTROY
+// DELETE
+app.delete('/lions/:id',(req,res) => {
+    let selectedId = Number(req.params.id);
 
+    let index = lions.findIndex((lion => lion.id === selectedId));
+
+    if (lions[index]) {
+        deletedLion = lions.splice(index);
+        res.json(deletedLion);
+    } else {
+        res.send();
+    }
+});
 
 app.listen(3000);
 console.log('on port 3000');
