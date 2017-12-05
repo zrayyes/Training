@@ -1,72 +1,28 @@
-// TODO: make this work.
+// TODO: mount the tigers route with a a new router just for tigers
+// exactly like lions below
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var _ = require('lodash');
+var morgan = require('morgan');
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
-const _ = require('lodash');
+var lionRouter = require('./lions');
+var tigerRouter = require('./tigers');
 
+app.use(morgan('dev'))
 app.use(express.static('client'));
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+// this is called mounting. when ever a req comes in for
+// '/lion' we want to use this router
+app.use('/lions', lionRouter);
 
-
-let lions = [];
-let id = 0;
-
-// TODO: make the REST routes to perform CRUD on lions
-
-// GET
-app.get('/lions',(req,res) => {
-    res.json(lions);
+app.use(function(err, req, res, next) {
+  if (err) {
+    res.status(500).send(error);
+  }
 });
 
-// GET by ID
-app.get('/lions/:id',(req,res) => {
-    let selectedId = Number(req.params.id);
-    selectedLion = lions.filter(lion => lion.id === selectedId)[0];
-    res.json(selectedLion || {});
-});
-
-// POST
-app.post('/lions',(req,res) => {
-    let newLion = req.body;
-    id += 1;
-    newLion.id = id;
-
-    lions.push(newLion);
-
-    res.json(lions);
-});
-
-// PUT
-app.put('/lions/:id',(req,res) => {
-    let update = req.body;
-    let selectedId = Number(req.params.id);
-
-    let index = lions.findIndex((lion => lion.id === selectedId));
-
-    if (lions[index]) {
-        lions[index] = update;
-        res.json(lions);
-    } else {
-        res.send();
-    }
-});
-
-// DELETE
-app.delete('/lions/:id',(req,res) => {
-    let selectedId = Number(req.params.id);
-
-    let index = lions.findIndex((lion => lion.id === selectedId));
-
-    if (lions[index]) {
-        deletedLion = lions.splice(index);
-        res.json(deletedLion);
-    } else {
-        res.send();
-    }
-});
 
 app.listen(3000);
 console.log('on port 3000');
