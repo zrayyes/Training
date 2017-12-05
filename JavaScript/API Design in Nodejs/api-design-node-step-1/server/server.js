@@ -23,23 +23,36 @@ app.get('/lions',(req,res) => {
 
 // GET by ID
 app.get('/lions/:id',(req,res) => {
-    let id = Number(req.params.id);
-    selectedLion = lions.filter(lion => lion.id === id)[0];
+    let selectedId = Number(req.params.id);
+    selectedLion = lions.filter(lion => lion.id === selectedId)[0];
     res.json(selectedLion || {});
 });
 
 // POST
 app.post('/lions',(req,res) => {
-    newLion = req.body;
-    newLion.id = id;
-    lions.push(newLion);
+    let newLion = req.body;
     id += 1;
+    newLion.id = id;
+
+    lions.push(newLion);
+
+    res.json(lions);
 });
 
 // PUT
 app.put('/lions/:id',(req,res) => {
-    let id = Number(req.params.id);
-    selectedLion = lions.filter(lion => lion.id === id)[0];
+    let update = req.body;
+    let selectedId = Number(req.params.id);
+
+    let index = lions.findIndex((lion => lion.id === selectedId));
+
+    if (lions[index]) {
+        lions[index] = update;
+        res.json(lions);
+    } else {
+        res.send();
+    }
+
     res.json(lions);
 });
 
