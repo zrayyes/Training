@@ -9,6 +9,10 @@ const port = process.env.PORT || 3000;
 const jsonData = {count: 12, message: 'hey'};
 
 app.get('/',(req,res) => {
+    res.sendFile(__dirname+'\\index.html');
+});
+
+app.get('/data',(req,res) => {
     res.json(jsonData);
 });
 
