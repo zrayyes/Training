@@ -1,10 +1,10 @@
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database(':memory:', (err) => {
+let db = new sqlite3.Database('./Exercise Files/results.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
       return console.error(err.message);
     }
-    console.log('Connected to the in-memory SQlite database.');
+    console.log('Connected to results database.');
 });
 
 db.close((err) => {
