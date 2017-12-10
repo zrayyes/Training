@@ -12,10 +12,9 @@ let db = new sqlite3.Database('./Exercise Files/results.db', sqlite3.OPEN_READWR
 
 
 db.all(
-  `SELECT *
+  `SELECT first_name, last_name
   FROM people
-  WHERE state LIKE 'C%'
-  LIMIT 5 OFFSET 5`,
+  ORDER BY state ASC, last_name DESC;`,
   (err, results) => {
     console.log(results)
 });
