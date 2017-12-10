@@ -14,7 +14,7 @@ let db = new sqlite3.Database('./Exercise Files/results.db', sqlite3.OPEN_READWR
 db.all(
   `SELECT *
   FROM people
-  WHERE (state='CA' OR state='CO') AND shirt_or_hat='shirt'`,
+  WHERE state LIKE 'C%'`,
   (err, results) => {
     console.log(results)
 });
