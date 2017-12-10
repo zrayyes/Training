@@ -4,17 +4,17 @@ const sqlite3 = require('sqlite3').verbose();
 
 // Connect to the database
 let db = new sqlite3.Database('./Exercise Files/results.db', sqlite3.OPEN_READWRITE, (err) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    // console.log('Connected to results database.');
+  if (err) {
+    return console.error(err.message);
+  }
+  // console.log('Connected to results database.');
 });
 
 
-// Return SQL Query results
 db.all(
-  `SELECT * 
-  FROM people`,
+  `SELECT *
+  FROM people
+  WHERE state='CA'`,
   (err, results) => {
     console.log(results)
 });
