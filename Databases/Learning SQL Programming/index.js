@@ -12,9 +12,8 @@ let db = new sqlite3.Database('./Exercise Files/results.db', sqlite3.OPEN_READWR
 
 
 db.all(
-  `SELECT first_name, last_name
-  FROM people
-  ORDER BY state ASC, last_name DESC;`,
+  `SELECT DISTINCT(first_name) 
+  FROM people;`,
   (err, results) => {
     console.log(results)
 });
