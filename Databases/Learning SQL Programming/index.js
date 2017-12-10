@@ -14,7 +14,8 @@ let db = new sqlite3.Database('./Exercise Files/results.db', sqlite3.OPEN_READWR
 db.all(
   `SELECT *
   FROM people
-  WHERE state LIKE 'C%'`,
+  WHERE state LIKE 'C%'
+  LIMIT 5 OFFSET 5`,
   (err, results) => {
     console.log(results)
 });
