@@ -1,19 +1,18 @@
 import C from "../constants";
 
 export const goal = (state=10, action) => {
-    (action.type === C.SET_GOAL) ?
+    return (action.type === C.SET_GOAL) ?
     Number(action.payload):
     state
 }
 
 export const skiDay = (state=null, action) => {
-    (action.type === C.ADD_DAY) ?
+    return (action.type === C.ADD_DAY) ?
     action.payload:
     state
 }
 
 export const errors = (state=null, action) => {
-
     switch(action.type) {
 
         case C.ADD_ERROR :
@@ -26,6 +25,26 @@ export const errors = (state=null, action) => {
             return state.filter((messsage,i) => i > action.payload);
         
         default:
-            return state
+            return state;
+    }
+}
+
+export const allSkiDays = (state, action) => {
+    switch(action.type) {
+
+        case C.ADD_DAY :
+            const hasDayAlready = state.some(skiDay => skiDay.date === action.payload.date);
+            return (hasDayAlready) ?
+            state :
+            [
+                ...state,
+                skiDay(null,action)
+            ];
+
+        case C.REMOVE_DAY :
+            return state.filter((skiDay, i) => { skiDay.date !== action.payload})
+        
+        default:
+            return state;
     }
 }
