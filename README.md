@@ -22,3 +22,4 @@ This is my code for Lynda.com courses that I am currently working on or have alr
  - Node.js: Build Your First Microservice
  - API Design in Node.js Using Express and Mongo
  - Learning SQL Programming
+ - Learning Redux
