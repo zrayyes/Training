@@ -1,22 +1,11 @@
-import React from "react";
-import { render } from "react-dom";
-import './stylesheets/ui.scss';
-import {App} from "./components/App";
-import {Whoops404} from "./components/Whoops404";
-import {Router, Route, hashHistory} from "react-router";
+import C from "./constants";
+import {allSkiDays, goal} from "./initialState.json";
 
-// Adds react to window to avoid React is undefined
-window.React = React;
+console.log(`
 
-render(
-    <Router history={hashHistory}>
-        <Route path="/" component={App}/>
-        <Route path="list-days" component={App}>
-            <Route path=":filter" component={App}/>
-        </Route>
-        <Route path="add-day" component={App}/>
-        <Route path="*" component={Whoops404}/>
-    </Router>,
-    document.getElementById('react-container')
-);
+    Ski Day Counter
+    ===============
+    The goal is ${goal} days
+    There are ${allSkiDays.length} ski days in state
 
+`);
