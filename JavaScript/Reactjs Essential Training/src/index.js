@@ -1,7 +1,23 @@
 import C from "./constants";
-import { goal } from "./store/reducers";
+import { skiDay } from "./store/reducers";
 
-console.log(goal(10,{
-    type: C.SET_GOAL,
-    payload: 15
-}))
+const state = null;
+
+const action = {
+    type: C.ADD_DAY,
+    payload: {
+        "resort": "Super Mountain",
+        "date": "2013-02-02",
+        "powder": false,
+        "backcountry": true
+    }
+}
+
+const nextState = skiDay(state, action);
+
+console.log(`
+
+    initial goal: ${state}
+    action: ${JSON.stringify(action)}
+    new resort: ${JSON.stringify(nextState)}
+`);
