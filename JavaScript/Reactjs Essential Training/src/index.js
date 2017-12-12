@@ -1,11 +1,7 @@
 import C from "./constants";
-import {allSkiDays, goal} from "./initialState.json";
+import { goal } from "./store/reducers";
 
-console.log(`
-
-    Ski Day Counter
-    ===============
-    The goal is ${goal} days
-    There are ${allSkiDays.length} ski days in state
-
-`);
+console.log(goal(10,{
+    type: C.SET_GOAL,
+    payload: 15
+}))
