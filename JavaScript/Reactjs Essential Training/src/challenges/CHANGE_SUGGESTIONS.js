@@ -25,7 +25,7 @@ const actualState = {
 expect(actualState.suggestions).toEqual(expectedState.suggestions)
 expect(actualState.fetching).toEqual(expectedState.fetching)
 
-console.log(`
+export default(`
 
     Challenge D: CHANGE_SUGGESTIONS PASSED!!!
 

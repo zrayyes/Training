@@ -13,7 +13,7 @@ const actualState = fetching(state, action)
 
 expect(actualState).toEqual(expectedState)
 
-console.log(`
+export default(`
 
     Challenge A: FETCH_RESORT_NAMES PASSED!!!
 

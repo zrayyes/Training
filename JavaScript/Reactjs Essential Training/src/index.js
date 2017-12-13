@@ -1,28 +1,8 @@
 import C from "./constants";
-import { allSkiDays } from "./store/reducers";
+import challengeA from "./challenges/CANCEL_FETCHING";
+import challengeB from "./challenges/CHANGE_SUGGESTIONS";
+import challengeC from "./challenges/CLEAR_SUGGESTIONS";
+import challengeD from "./challenges/FETCH_RESORT_NAMES";
 
-const state = [
-    {
-        "resort": "Squaw Valley",
-        "date": "2016-01-02",
-        "powder": true,
-        "backcountry": false
-    }
-];
 
-const action = {
-    type: C.ADD_DAY,
-    payload: {
-        "resort": "Super Mountain",
-        "date": "2017-08-08",
-        "powder": false,
-        "backcountry": false
-    }
-}
-
-const nextState = allSkiDays(state, action);
-
-console.log(`
-initial state: ${JSON.stringify(state)}
-new state: ${JSON.stringify(nextState)}
-`);
+console.log(challengeA);
