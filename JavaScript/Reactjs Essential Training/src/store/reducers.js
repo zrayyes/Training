@@ -30,7 +30,7 @@ export const errors = (state=null, action) => {
     }
 }
 
-export const allSkiDays = (state, action) => {
+export const allSkiDays = (state=[], action) => {
     switch(action.type) {
 
         case C.ADD_DAY :
@@ -65,7 +65,7 @@ export const fetching = (state=false, action) => {
     }
 }
 
-export const suggestions = (state, action) => {
+export const suggestions = (state=[], action) => {
     switch(action.type) {
         case C.CLEAR_SUGGESTIONS:
             return [];
