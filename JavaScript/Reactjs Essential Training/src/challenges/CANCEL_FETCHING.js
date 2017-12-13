@@ -14,4 +14,9 @@ const actualState = fetching(state, action)
 expect(actualState).toEqual(expectedState)
 
 
-export default ("Challenge B: CANCEL_FETCHING PASSED!!!");
+export default (`
+
+    Challenge B: CANCEL_FETCHING PASSED!!!
+
+
+`);
