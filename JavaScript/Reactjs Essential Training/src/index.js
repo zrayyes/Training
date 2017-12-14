@@ -1,24 +1,20 @@
 import C from "./constants";
 import appReducer from "./store/reducers";
 import initialState from "./initialState.json";
+import {createStore} from "redux";
 
-let state = initialState;
+const store = createStore(appReducer, initialState);
 
-console.log(JSON.stringify(state));
+console.log('initial state', store.getState());
 
-state = appReducer(state,{
-    type: C.SET_GOAL,
-    payload: 2
-});
-
-state = appReducer(state,{
+store.dispatch({
     type: C.ADD_DAY,
     payload: {
         "resort": "Super Mountain",
-        "date": "2014-05-08",
-        "powder": false,
-        "backcountry": false
+        "date": "2012-06-06",
+        "powder": true,
+        "backcountry": true
     }
 });
 
-console.log(JSON.stringify(state));
+console.log('Current state', store.getState());
