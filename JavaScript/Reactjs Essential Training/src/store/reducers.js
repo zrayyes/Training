@@ -13,7 +13,7 @@ export const skiDay = (state=null, action) => {
     state
 }
 
-export const errors = (state=null, action) => {
+export const errors = (state=[], action) => {
     switch(action.type) {
 
         case C.ADD_ERROR :

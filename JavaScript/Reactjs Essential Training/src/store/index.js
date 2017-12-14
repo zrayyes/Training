@@ -11,12 +11,11 @@ const consoleMessages = store => next => action => {
     let { allSkiDays, goal, errors, resortNames } = store.getState();
 
     console.log(`
-
         ski days: ${allSkiDays.length}
         goal: ${goal}
         fetching: ${resortNames.fetching}
         suggestions: ${resortNames.suggestions}
-        errors: ${errors.length}
+        errors: ${errors}
     `);
 
     console.groupEnd();

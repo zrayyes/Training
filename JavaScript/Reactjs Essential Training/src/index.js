@@ -1,18 +1,45 @@
 import C from "./constants";
-import appReducer from "./store/reducers";
-import {createStore} from "redux";
+import storeFactory from "./store";
 
-const store = createStore(appReducer);
+const initialState = (localStorage['redux-store']) ?
+                        JSON.parse(localStorage['redux-store']):
+                        {};
 
-const unsubscribeGoalLogger = store.subscribe(
-    ()=> console.log(` Goal: ${store.getState().goal}`)
-);
+const saveState = () => {
+    const state = JSON.stringify(store.getState());
+    localStorage['redux-store'] = state;
+}
 
-setInterval(()=> {
-    store.dispatch({
-        type: C.SET_GOAL,
-        payload: parseInt(Math.random() * 100)
-    })
-}, 500);
+const store = storeFactory(initialState);
 
-setTimeout(()=> unsubscribeGoalLogger(), 3000);
+store.subscribe(saveState);
+
+store.dispatch({
+    type: C.ADD_DAY,
+    payload: {
+        "resort": "V5 Valley",
+        "date": "2013-05-08",
+        "powder": true,
+        "backcountry": true
+    }
+});
+
+store.dispatch({
+    type: C.ADD_DAY,
+    payload: {
+        "resort": "V5 Valley",
+        "date": "2014-05-08",
+        "powder": true,
+        "backcountry": true
+    }
+});
+
+store.dispatch({
+    type: C.ADD_DAY,
+    payload: {
+        "resort": "V5 Valley",
+        "date": "2015-05-08",
+        "powder": true,
+        "backcountry": true
+    }
+});
