@@ -1,6 +1,10 @@
-import React,{ Component } from 'react';
+import React from 'react';
+import moment from "moment";
 
-export const TimerItem = () =>
+let utc =  moment().utcOffset(-5).format('HH:mm:ss');
+
+export const TimerItem = () => (
     <div>
-        <p>ITEM</p>
+        <li>{utc}</li>
     </div>
+)
