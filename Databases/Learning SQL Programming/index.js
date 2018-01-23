@@ -12,8 +12,11 @@ let db = new sqlite3.Database('./Exercise Files/results.db', sqlite3.OPEN_READWR
 
 
 db.all(
-  `SELECT DISTINCT(first_name) 
-  FROM people;`,
+  `SELECT *
+  FROM people
+  JOIN states
+  ON people.state=states.state_abbrev
+  WHERE people.first_name LIKE 'j%' AND states.region='South'`,
   (err, results) => {
     console.log(results)
 });
