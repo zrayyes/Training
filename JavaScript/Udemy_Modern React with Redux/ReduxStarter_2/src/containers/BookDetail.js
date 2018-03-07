@@ -4,9 +4,18 @@ import { selectBook } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 class BookDetail extends Component {
-    render = () => (
-        <div>{this.props.book}</div>
-    )
+    render() {
+        return (
+            (this.props.book)
+                ? <div>
+                    <h3>Details for:</h3>
+                    <div>Title: {this.props.book.title}</div>
+                    <div>Pages: {this.props.book.pages}</div>
+                </div>
+                : <div>Please select a book</div>
+        )
+
+    }
 }
 
 function mapStateToProps(state) {
