@@ -13,7 +13,7 @@ class Forecast extends Component {
                     Current conditions: {this.props.description}
                 </Text>
                 <Text style={styles.bigText}>
-                    {this.props.temp}°F
+                    {this.props.temp}°C
         </Text>
             </View>
         );
@@ -31,3 +31,5 @@ const styles = StyleSheet.create({
     },
     mainText: { flex: 1, fontSize: 16, textAlign: "center", color: "#FFFFFF" }
 });
+
+export default Forecast;
