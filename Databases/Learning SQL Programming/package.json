@@ -1,7 +1,0 @@
-{
-  "name": "sql_programming",
-  "version": "1.0.0",
-  "dependencies": {
-    "sqlite3": "^3.1.13"
-  }
-}
