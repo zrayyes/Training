@@ -1,10 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
+import Forecast from "./Forecast";
 
 export default class WeatherProject extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { zip: "" };
+        this.state = {
+            zip: "",
+            forecast: null
+        };
     }
 
     _handleTextChange = event => {
@@ -12,12 +16,27 @@ export default class WeatherProject extends React.Component {
     }
 
     render() {
+        let content = null;
+        if (this.state.forecast !== null) {
+            content = (
+                <Forecast
+                    main={this.state.forecast.main}
+                    description={this.state.forecast.description}
+                    temp={this.state.forecast.temp}
+                />
+            );
+        }
+
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>You input {this.state.zip}.</Text>
+                <Text style={styles.welcome}>
+                    You input {this.state.zip}.
+            </Text>
+                {content}
                 <TextInput
                     style={styles.input}
-                    onSubmitEditing={this._handleTextChange} />
+                    onSubmitEditing={this._handleTextChange}
+                />
             </View>
         );
     }
