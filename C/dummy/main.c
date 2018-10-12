@@ -1,8 +1,16 @@
 
 
 int main() {
-    int number = 25;
-    printf("Number of %s: %d", "potatoes", number);
+    int c;
+    int d;
+    printf("Type two letters: ");
+    c = getchar();
+    d = getchar();
+    printf("You typed ");
+    putchar(c);
+    printf(" and ");
+    putchar(d);
+    putchar('\n');
 
     return (0);
 }
