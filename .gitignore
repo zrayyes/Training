@@ -60,3 +60,6 @@ Python Data Science/Python_Data_Analysis/readme.txt
 Python Data Science/Pandas Essential Training/olympics.csv
 /JavaScript/Nodejs Build Your First Microservice/docs/token.txt
 /JavaScript/Nodejs Build Your First Microservice/docs/bin/run.js
+
+.vscode
+/C/*/*.exe
