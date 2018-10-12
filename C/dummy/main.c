@@ -1,16 +1,11 @@
-
+#include <stdio.h>
 
 int main() {
-    int c;
-    int d;
-    printf("Type two letters: ");
-    c = getchar();
-    d = getchar();
-    printf("You typed ");
-    putchar(c);
-    printf(" and ");
-    putchar(d);
-    putchar('\n');
+    int f;
+
+    printf("Enter integer: ");
+    scanf_s("%d",&f);
+    printf("Integer: %d\n", f);
 
     return (0);
 }
