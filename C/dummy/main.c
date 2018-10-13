@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-int main() {
-    int f;
+int main()
+{
+    char input[64];
+    printf("Input long string:");
+    fgets(input,64,stdin);
+    puts(input);
 
-    printf("Enter integer: ");
-    scanf_s("%d",&f);
-    printf("Integer: %d\n", f);
-
-    return (0);
+    return(0);
 }
