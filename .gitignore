@@ -64,3 +64,4 @@ Python Data Science/Pandas Essential Training/olympics.csv
 .vscode
 /C/*/*.exe
 C/dummy/cmake-build-debug/*
+wasm_out/
