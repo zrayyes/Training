@@ -2,9 +2,36 @@
 #include <Psapi.h>
 #include <wchar.h>
 #include <processthreadsapi.h>
+#include <string.h>
 
-// DWORD = u32
-// LPDWORD = pointer to dword
+void reverse(char *str) {
+    char *last = str + strlen(str) - 1;
+    while (str < last) {
+        do {
+            *str = *str ^ *last;
+            *last = *str ^ *last;
+            *str = *str ^ *last;
+        } while (0);
+        str++;
+        last--;
+    }
+};
+
+char *nameFromPath(char *path) {
+    static char name[25];
+    int x = 0;
+
+    reverse(path);
+    while (*path != '\\') {
+        name[x] = *path;
+        x++;
+        path++;
+    }
+    name[x] = '\0';
+    reverse(name);
+    return name;
+};
+
 DWORD *getAllProcessIds() {
     static DWORD aProcesses[1024], cbNeeded;
     if (!EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded)) {
@@ -30,9 +57,15 @@ int wmain(void) {
     wprintf(L"Starting...\n");
 
     DWORD *pids = getAllProcessIds();
-
     HANDLE h1 = getProcessHandle(9568);
 
-    wprintf(L"Done.\n");
+    LPSTR filename[128];
+    DWORD pathLength = GetProcessImageFileNameA(h1, filename, sizeof(filename));
+
+    char *name = nameFromPath(filename);
+    wprintf(L"%S\n", name);
+
+
+    wprintf(L"\nDone.\n");
     return 0;
 }
