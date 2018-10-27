@@ -53,18 +53,20 @@ HANDLE getProcessHandle(DWORD pid) {
     return handle;
 };
 
+char *getNameFromHandle(HANDLE h) {
+    LPSTR filename[128];
+    DWORD pathLength = GetProcessImageFileNameA(h, filename, sizeof(filename));
+    return nameFromPath(filename);
+}
+
 int wmain(void) {
     wprintf(L"Starting...\n");
 
     DWORD *pids = getAllProcessIds();
     HANDLE h1 = getProcessHandle(9568);
+    char *name = getNameFromHandle(h1);
 
-    LPSTR filename[128];
-    DWORD pathLength = GetProcessImageFileNameA(h1, filename, sizeof(filename));
-
-    char *name = nameFromPath(filename);
     wprintf(L"%S\n", name);
-
 
     wprintf(L"\nDone.\n");
     return 0;
