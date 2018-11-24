@@ -67,3 +67,5 @@ C/dummy/cmake-build-debug/*
 wasm_out/
 cmake-build-debug/
 CMakeLists.txt
+C/LCTHW/exercises/ex*
+!C/LCTHW/exercises/ex*.c
