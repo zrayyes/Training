@@ -1,9 +1,9 @@
 CFLAGS=-Wall -g
 
-all: ex8 
+all: ex11 
 
 clean:
-	rm -f ex1 ex3 ex7 ex8
+	rm -f ex11
 
 run:
-	./ex8
+	./ex11

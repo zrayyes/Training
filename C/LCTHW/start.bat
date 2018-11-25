@@ -1,1 +1,1 @@
-START "Docker GCC" docker run -it --rm -v C:/Users/Zuhair/Desktop/GitHub/Training/C/LCTHW/exercises:/workdir -w="/workdir" gcc:8
+START "Docker GCC" docker run -it -d -v C:/Users/Zuhair/Desktop/GitHub/Training/C/LCTHW/exercises:/workdir -w="/workdir" gcc:8
