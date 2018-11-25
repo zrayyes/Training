@@ -7,15 +7,12 @@ int nameToInt(char *string)
     return name;
 }
 
-char *intToName(int n)
+void intToName(int n, char *name)
 {
-    static char name[4];
     name[0] = (char)(n >> 8 * 3);
     name[1] = (char)(n >> 8 * 2);
     name[2] = (char)(n >> 8 * 1);
     name[3] = (char)(n >> 8 * 0);
-
-    return name;
 }
 
 int main(int argc, char *argv[])
@@ -58,7 +55,8 @@ int main(int argc, char *argv[])
     int nameAsInt = nameToInt(another);
     printf("Name as int: %d\n", nameAsInt);
 
-    char *intAsName = intToName(nameAsInt);
+    char intAsName[4];
+    intToName(nameAsInt, intAsName);
     printf("Int as name: %s\n", intAsName);
 
     return 0;
