@@ -1,9 +1,11 @@
 CFLAGS=-Wall -g
 
-all: ex11 
+EXNUM = 12
+EX = ex$(EXNUM) 
+all: $(EX) 
 
 clean:
-	rm -f ex11
+	rm -f $(EX)
 
 run:
-	./ex11
+	./$(EX)
