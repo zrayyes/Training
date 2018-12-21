@@ -1,6 +1,6 @@
 CFLAGS=-Wall -g
 
-EXNUM = 12
+EXNUM = 13
 EX = ex$(EXNUM) 
 all: $(EX) 
 
