@@ -46,3 +46,6 @@ def pass_block(&block)
 end
 
 pass_block{puts "Hello, block"}
+
+a = [5,3,4,1]
+puts a.inject(0) {|sum, i| sum+i}
