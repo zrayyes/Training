@@ -1,6 +1,6 @@
 from flask import render_template, abort, redirect, request, make_response, url_for
 from . import main
-from .. import db
+# from .. import db
 
 @main.route("/")
 def index():
