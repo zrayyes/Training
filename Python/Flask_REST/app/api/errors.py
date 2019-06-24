@@ -1,6 +1,10 @@
 from flask import request, jsonify
 from . import api
 
+def unauthorized(message):
+    response = jsonify({"error":"unauthorized",'message': message})
+    return response, 401
+
 def forbidden(message):
     response = jsonify({"error":"forbidden",'message': message})
     return response, 403
