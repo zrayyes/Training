@@ -22,3 +22,23 @@ unless := method(
 )
 
 unless(true, ("It is false" println), ("It is true" println))
+
+Object ancestors := method(
+    prototype := self proto
+    if (prototype != Object,
+        writeln("Slots of ", prototype type, "\n---------------")
+        prototype slotNames foreach(slotName, writeln(slotName))
+        writeln
+        prototype ancestors
+    ,"")
+)
+
+Vehicle := Object clone
+Vehicle drive := method("Driving" println)
+
+Car := Vehicle clone
+Car drive := method("Vroom Vroom" println)
+Car brake := method("Screech" println)
+
+ferrari := Car clone
+ferrari ancestors println
